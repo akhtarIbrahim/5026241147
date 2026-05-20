@@ -1,6 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\PegawaiDBController;
+
+Route::get('/halo', function () {
+	return "<h1>Halo, Selamat datang</h1> di tutorial laravel <b>www.malasngoding.com</b>";
+});
+
+Route::get('biodata', [DosenController::class, 'biodata']);
+Route::get('dosen', [DosenController::class, 'index']);
+
+Route::get('blog', function () {
+    return view('blog');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +50,6 @@ Route::get('day5t', function () {
 Route::get('menu', function () {
     return view('menu');
 });
+
+
+Route::get('/pegawai', [PegawaiDBController::class, 'index']);
