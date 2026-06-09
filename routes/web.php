@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiDBController;
+use App\Http\Controllers\AgenController;
+use App\Http\Controllers\SiswaController;
+
+
 
 Route::get('/halo', function () {
 	return "<h1>Halo, Selamat datang</h1> di tutorial laravel <b>www.malasngoding.com</b>";
@@ -51,5 +55,28 @@ Route::get('menu', function () {
     return view('menu');
 });
 
-
+//pegawai
 Route::get('/pegawai', [PegawaiDBController::class, 'index']);
+Route::get('/pegawai/tambah', [PegawaiDBController::class, 'tambah']);
+Route::post('/pegawai/store', [PegawaiDBController::class, 'store']);
+Route::get('/pegawai/edit/{id}', [PegawaiDBController::class, 'edit']);
+Route::post('/pegawai/update', [PegawaiDBController::class, 'update']);
+Route::post('/pegawai/hapus/{id}', [PegawaiDBController::class, 'hapus']);
+Route::get('/pegawai/cari', [PegawaiDBController::class, 'cari']);
+
+//agen
+Route::get('/agen', [AgenController::class, 'indexagen']);
+Route::get('/agen/tambah', [AgenController::class, 'tambahagen']);
+Route::post('/agen/store', [AgenController::class, 'storeagen']);
+Route::get('/agen/edit/{id}', [AgenController::class, 'editagen']);
+Route::post('/agen/update', [AgenController::class, 'updateagen']);
+Route::get('/agen/hapus/{id}', [AgenController::class, 'hapusagen']);
+
+
+//siswa
+Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
