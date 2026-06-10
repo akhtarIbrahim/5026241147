@@ -6,8 +6,7 @@ use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\AgenController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BelanjaController;
-
-
+use App\Http\Controllers\NilaiController;
 
 Route::get('/halo', function () {
 	return "<h1>Halo, Selamat datang</h1> di tutorial laravel <b>www.malasngoding.com</b>";
@@ -79,12 +78,17 @@ Route::get('/belanja/create', [BelanjaController::class, 'createbelanja'])->name
 Route::post('/belanja/store', [BelanjaController::class, 'storebelanja'])->name('belanja.store');
 Route::delete('/belanja/{id}', [BelanjaController::class, 'destroybelanja'])->name('belanja.destroy');
 
-//siswa SIAP EAS
+//nilai LATIHAN EAS
+Route::get('/nilai', [NilaiController::class, 'indexnilai'])->name('nilai.index');
+Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
+Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.store');
+Route::delete('/nilai/{nrp}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
+
+//SIAP EAS
 Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
 Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
-
 

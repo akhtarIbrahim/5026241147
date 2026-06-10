@@ -26,13 +26,13 @@
                     <a class="nav-link" href="/agen">Agen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/siswa">Siswa</a>
+                    <a class="nav-link" href="/siswa">Siswa</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/belanja">Latihan 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/nilai">Latihan 2</a>
+                    <a class="nav-link active" href="/nilai">Latihan 2</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/eas">EAS</a>
@@ -50,4 +50,3 @@
 
 
 
-{{-- SIAP EAS --}}
