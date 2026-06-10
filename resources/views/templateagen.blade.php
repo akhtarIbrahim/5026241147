@@ -26,7 +26,7 @@
                     <a class="nav-link active" href="/agen">Agen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/siswa">Siswa</a>
+                    <a class="nav-link" href="/siswa">Siswa</a> //SIAP EAS
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Latihan 1</a>
@@ -47,3 +47,5 @@
 </body>
 
 </html>
+
+

@@ -73,10 +73,12 @@ Route::post('/agen/update', [AgenController::class, 'updateagen']);
 Route::get('/agen/hapus/{id}', [AgenController::class, 'hapusagen']);
 
 
-//siswa
+//siswa SIAP EAS
 Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
 Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
+
