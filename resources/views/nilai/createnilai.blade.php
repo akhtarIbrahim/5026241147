@@ -12,22 +12,22 @@
         </ul>
     @endif
 
-    <form action="/nilai/store" method="POST" onsubmit="return validasiForm()">
+        <form action="{{ route('nilai.store') }}" method="POST">
         @csrf
 
         <p>
-            <label>Kode Barang</label><br>
-            <input type="text" name="KodeBarang" id="KodeBarang" maxlength="10" value="{{ old('KodeBarang') }}">
+            <label>NRP</label><br>
+            <input type="text" name="NRP" id="NRP" maxlength="10" value="{{ old('NRP') }}">
         </p>
 
         <p>
-            <label>Jumlah</label><br>
-            <input type="text" name="Jumlah" id="Jumlah" maxlength="20" value="{{ old('Jumlah') }}">
+            <label>Nilai Angka</label><br>
+            <input type="text" name="NilaiAngka" id="NilaiAngka" maxlength="20" value="{{ old('NilaiAngka') }}">
         </p>
 
         <p>
-            <label>Harga</label><br>
-            <input type="text" name="Harga" id="Harga" maxlength="20" value="{{ old('Harga') }}">
+            <label>SKS</label><br>
+            <input type="text" name="SKS" id="SKS" maxlength="20" value="{{ old('SKS') }}">
         </p>
 
         <button type="submit">Simpan</button>

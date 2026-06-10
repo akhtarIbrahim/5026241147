@@ -19,6 +19,7 @@
             <th>SKS</th>
             <th>Nilai Huruf</th>
             <th>Bobot</th>
+            <th>Aksi</th>
         </tr>
 
         @forelse($nilai as $row)
@@ -26,24 +27,22 @@
                 <td>{{ $row->NRP }}</td>
                 <td>{{ $row->NilaiAngka }}</td>
                 <td>{{ $row->SKS }}</td>
-                <td>{{ NilaiAngka::toWords($row->NilaiAngka, 'id') }}</td>
                 <td>
-                @if ($row->NilaiAngka >= 41 && $row->NilaiAngka <= 60)
-                    <p>C</p>
-                @elseif ($row->NilaiAngka >= 61 && $row->NilaiAngka < 80)
-                    <p>B</p>
-                @elseif ($row->NilaiAngka >= 81)
-                    <p>A</p>
-                @elseif ($row->NilaiAngka <= 40)
-                    <p>D</p>
-                @else
-                    <p>Nilai tidak valid</p>
-                @endif
+                    @if ($row->NilaiAngka >= 81)
+                        A
+                    @elseif ($row->NilaiAngka >= 61)
+                        B
+                    @elseif ($row->NilaiAngka >= 41)
+                        C
+                    @else
+                        D
+                    @endif
                 </td>
+                <td>{{ $row->NilaiAngka * $row->SKS }}</td>
+
                 <td>
                     {{-- <a href="{{ route('belanja.edit', $row->ID) }}" class="btn btn-warning">Edit</a> --}}
-                    <a href="{{ route('nilai.create') }}" class="btn btn-warning">Beli</a>
-                    <form action="{{ route('belanja.destroy', $row->ID) }}" method="POST" style="display:inline;"
+                    <form action="{{ route('nilai.destroy', $row->NRP) }}" method="POST" style="display:inline;"
                         onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                         @csrf
                         @method('DELETE')

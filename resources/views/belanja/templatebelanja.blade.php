@@ -32,7 +32,7 @@
                     <a class="nav-link  active" href="/belanja">Latihan 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/kuliah">Latihan 2</a>
+                    <a class="nav-link" href="/nilai">Latihan 2</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/eas">EAS</a>

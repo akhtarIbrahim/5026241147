@@ -83,4 +83,3 @@ class SiswaController extends Controller
     }
 }
 
-// SIAP EAS

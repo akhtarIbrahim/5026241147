@@ -25,7 +25,7 @@ class NilaiController extends Controller
         DB::table('nilaikuliah')->insert([
             'NRP' => $request->NRP,
             'NilaiAngka' => $request->NilaiAngka,
-            'SKS' => $request->Kelas,
+            'SKS' => $request->SKS,
             ]);
 
         return redirect()->route('nilai.index')->with('success', 'Data nilai berhasil ditambahkan.');
