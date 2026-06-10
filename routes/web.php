@@ -5,6 +5,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\AgenController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\BelanjaController;
 
 
 
@@ -72,6 +73,11 @@ Route::get('/agen/edit/{id}', [AgenController::class, 'editagen']);
 Route::post('/agen/update', [AgenController::class, 'updateagen']);
 Route::get('/agen/hapus/{id}', [AgenController::class, 'hapusagen']);
 
+//belanja LATIHAN EAS
+Route::get('/belanja', [BelanjaController::class, 'indexbelanja'])->name('belanja.index');
+Route::get('/belanja/create', [BelanjaController::class, 'createbelanja'])->name('belanja.create');
+Route::post('/belanja/store', [BelanjaController::class, 'storebelanja'])->name('belanja.store');
+Route::delete('/belanja/{id}', [BelanjaController::class, 'destroybelanja'])->name('belanja.destroy');
 
 //siswa SIAP EAS
 Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
