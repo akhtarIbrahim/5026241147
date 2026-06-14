@@ -7,18 +7,18 @@ use Illuminate\Support\Facades\DB;
 
 class AgenController extends Controller
 {
-    public function indexagen()
+    public function index()
     {
         $agen = DB::table('agen')->get();
-        return view('indexagen', ['agen' => $agen]);
+        return view('agen.index', ['agen' => $agen]);
     }
 
-    public function tambahagen()
+    public function tambah()
     {
-        return view('tambahagen');
+        return view('agen.tambah');
     }
 
-    public function storeagen(Request $request)
+    public function store(Request $request)
     {
         DB::table('agen')->insert([
             'namaagen'   => $request->namaagen,
@@ -28,13 +28,13 @@ class AgenController extends Controller
         return redirect('/agen');
     }
 
-    public function editagen($id)
+    public function edit($id)
     {
         $agen = DB::table('agen')->where('kodeagen', $id)->first();
-        return view('tambahagen', ['agen' => $agen]);
+        return view('agen.edit', ['agen' => $agen]);
     }
 
-    public function updateagen(Request $request)
+    public function update(Request $request)
     {
         DB::table('agen')->where('kodeagen', $request->id)->update([
             'namaagen'   => $request->namaagen,
@@ -44,7 +44,7 @@ class AgenController extends Controller
         return redirect('/agen');
     }
 
-    public function hapusagen($id)
+    public function hapus($id)
     {
         DB::table('agen')->where('kodeagen', $id)->delete();
         return redirect('/agen');

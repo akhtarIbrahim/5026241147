@@ -1,8 +1,7 @@
-@extends('siswa.templatesiswa')
+@extends('template')
 @section('title', 'Data Siswa')
 @section('konten')
 
-    <!-- Header Sederhana -->
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <h4 class="fw-bold text-dark m-0">Data Siswa</h4>
@@ -15,7 +14,6 @@
         </div>
     </div>
 
-    <!-- Alert Biasa -->
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show small py-2" role="alert">
             <i class="bi bi-check-circle me-1"></i> {{ session('success') }}
@@ -23,7 +21,6 @@
         </div>
     @endif
 
-    <!-- Tabel Bersih Standar -->
     <div class="card border rounded-3 bg-white">
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
@@ -39,41 +36,39 @@
                 <tbody>
                     @forelse($siswa as $row)
                         <tr>
-                            <!-- NRP Biasa -->
                             <td class="ps-3 fw-mono text-secondary small">
                                 {{ $row->NRP }}
                             </td>
 
-                            <!-- Nama Tanpa Avatar Bulat -->
                             <td class="fw-medium text-dark">
                                 {{ $row->Nama }}
                             </td>
 
-                            <!-- Kelas Badge Simpel -->
                             <td>
                                 <span class="badge bg-secondary-subtle text-secondary border px-2 py-1">
                                     {{ $row->Kelas }}
                                 </span>
                             </td>
 
-                            <!-- Tanggal Lahir -->
                             <td class="text-muted small">
                                 {{ \Carbon\Carbon::parse($row->TanggalLahir)->translatedFormat('d F Y') }}
                             </td>
 
-                            <!-- Tombol Aksi Standard -->
                             <td class="pe-3 text-end">
-                                <a href="{{ route('siswa.edit', $row->NRP) }}" class="btn btn-sm btn-outline-warning py-1 px-2" title="Edit">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <form action="{{ route('siswa.destroy', $row->NRP) }}" method="POST" style="display:inline;"
-                                    onsubmit="return confirm('Hapus data {{ $row->Nama }}?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger py-1 px-2" title="Hapus">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex justify-content-end gap-1">
+                                    <a href="{{ route('siswa.edit', $row->NRP) }}"
+                                       class="btn btn-sm btn-outline-warning py-1 px-2" title="Edit">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form action="{{ route('siswa.destroy', $row->NRP) }}" method="POST"
+                                          style="display:inline;" onsubmit="return confirm('Hapus data {{ $row->Nama }}?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger py-1 px-2" title="Hapus">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @empty

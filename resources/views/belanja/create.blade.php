@@ -1,4 +1,4 @@
-@extends('belanja.templatebelanja')
+@extends('template')
 @section('title', 'Data Keranjang Belanja')
 @section('konten')
 
@@ -12,7 +12,7 @@
         </ul>
     @endif
 
-    <form action="/belanja/store" method="POST" onsubmit="return validasiForm()">
+    <form action="{{ route('belanja.store') }}" method="POST">
         @csrf
 
         <p>

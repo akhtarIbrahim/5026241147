@@ -1,4 +1,4 @@
-@extends('templateagen')
+@extends('template')
 @section('judul_halaman', 'Data Agen')
 @section('konten')
 

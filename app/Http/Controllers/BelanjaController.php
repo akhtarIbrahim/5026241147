@@ -8,18 +8,18 @@ use Illuminate\Validation\Rule;
 
 class BelanjaController extends Controller
 {
-    public function indexbelanja()
+    public function index()
     {
         $keranjangbelanja = DB::table('keranjangbelanja')->get();
-        return view('belanja.indexbelanja', compact('keranjangbelanja'));
+        return view('belanja.index', compact('keranjangbelanja'));
     }
 
-    public function createbelanja()
+    public function create()
     {
-        return view('belanja.createbelanja');
+        return view('belanja.create');
     }
 
-    public function storebelanja(Request $request)
+    public function store(Request $request)
     {
         // $request->validate([
         //     'NRP' => 'required|string|max:10|unique:siswa,NRP',
@@ -74,7 +74,7 @@ class BelanjaController extends Controller
     //     return redirect()->route('belanja.index')->with('success', 'Data siswa berhasil diubah.');
     // }
 
-    public function destroybelanja($ID)
+    public function destroy($ID)
     {
         DB::table('keranjangbelanja')->where('ID', $ID)->delete();
 
