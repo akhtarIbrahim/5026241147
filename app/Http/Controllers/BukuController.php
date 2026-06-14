@@ -22,7 +22,7 @@ class BukuController extends Controller
         }
 
         // 3. Lempar hasil ke halaman tampilan
-        return view('buku.indexbuku', compact('buku'));
+        return view('buku.index', compact('buku'));
     }
 
     public function pinjam($id)
