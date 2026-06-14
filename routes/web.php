@@ -97,8 +97,5 @@ Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.stor
 Route::delete('/nilai/{nrp}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
 
 //LatihanPribadi
-
-// Jalur untuk melihat tabel halaman utama
 Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
-// Jalur untuk memproses ketika tombol klik pinjam
 Route::post('/buku/pinjam/{id}', [BukuController::class, 'pinjam'])->name('buku.pinjam');
