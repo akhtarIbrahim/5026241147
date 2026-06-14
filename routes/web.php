@@ -92,3 +92,4 @@ Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('si
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
+//EAS

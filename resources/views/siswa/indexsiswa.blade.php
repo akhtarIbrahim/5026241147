@@ -2,48 +2,90 @@
 @section('title', 'Data Siswa')
 @section('konten')
 
-    <h2>Data Siswa</h2>
+    <!-- Header Sederhana -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h4 class="fw-bold text-dark m-0">Data Siswa</h4>
+            <p class="text-muted small m-0">Daftar seluruh siswa yang terdaftar di sistem.</p>
+        </div>
+        <div>
+            <a href="{{ route('siswa.create') }}" class="btn btn-primary btn-sm px-3 py-2 fw-medium">
+                <i class="bi bi-plus-lg"></i> Tambah Data
+            </a>
+        </div>
+    </div>
 
+    <!-- Alert Biasa -->
     @if (session('success'))
-        <p style="color: green;">{{ session('success') }}</p>
+        <div class="alert alert-success alert-dismissible fade show small py-2" role="alert">
+            <i class="bi bi-check-circle me-1"></i> {{ session('success') }}
+            <button type="button" class="btn-close py-2" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
 
-    <a href="{{ route('siswa.create') }}" class="btn btn-primary">Tambah Siswa</a>
+    <!-- Tabel Bersih Standar -->
+    <div class="card border rounded-3 bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light small text-secondary">
+                    <tr>
+                        <th class="ps-3">NRP</th>
+                        <th>Nama Lengkap</th>
+                        <th>Kelas</th>
+                        <th>Tanggal Lahir</th>
+                        <th class="pe-3 text-end">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($siswa as $row)
+                        <tr>
+                            <!-- NRP Biasa -->
+                            <td class="ps-3 fw-mono text-secondary small">
+                                {{ $row->NRP }}
+                            </td>
 
-    <br><br>
+                            <!-- Nama Tanpa Avatar Bulat -->
+                            <td class="fw-medium text-dark">
+                                {{ $row->Nama }}
+                            </td>
 
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>NRP</th>
-            <th>Nama</th>
-            <th>Kelas</th>
-            <th>Tanggal Lahir</th>
-            <th>Aksi</th>
-        </tr>
+                            <!-- Kelas Badge Simpel -->
+                            <td>
+                                <span class="badge bg-secondary-subtle text-secondary border px-2 py-1">
+                                    {{ $row->Kelas }}
+                                </span>
+                            </td>
 
-        @forelse($siswa as $row)
-            <tr>
-                <td>{{ $row->NRP }}</td>
-                <td>{{ $row->Nama }}</td>
-                <td>{{ $row->Kelas }}</td>
-                <td>{{ $row->TanggalLahir }}</td>
-                <td>
-                    <a href="{{ route('siswa.edit', $row->NRP) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('siswa.destroy', $row->NRP) }}" method="POST" style="display:inline;"
-                        onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="5">Belum ada data siswa.</td>
-            </tr>
-        @endforelse
-    </table>
+                            <!-- Tanggal Lahir -->
+                            <td class="text-muted small">
+                                {{ \Carbon\Carbon::parse($row->TanggalLahir)->translatedFormat('d F Y') }}
+                            </td>
+
+                            <!-- Tombol Aksi Standard -->
+                            <td class="pe-3 text-end">
+                                <a href="{{ route('siswa.edit', $row->NRP) }}" class="btn btn-sm btn-outline-warning py-1 px-2" title="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <form action="{{ route('siswa.destroy', $row->NRP) }}" method="POST" style="display:inline;"
+                                    onsubmit="return confirm('Hapus data {{ $row->Nama }}?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger py-1 px-2" title="Hapus">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center py-4 text-muted small">
+                                <i class="bi bi-inbox fs-3 d-block mb-2 text-secondary"></i>
+                                Belum ada data siswa.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
 @endsection
-
-
-
