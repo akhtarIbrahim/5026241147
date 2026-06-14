@@ -74,23 +74,24 @@ Route::get('/agen/edit/{id}', [AgenController::class, 'edit']);
 Route::post('/agen/update', [AgenController::class, 'update']);
 Route::get('/agen/hapus/{id}', [AgenController::class, 'hapus']);
 
-//SIAP EAS
-Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
+//SIAP EAS Siswa
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
-Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
-
 //belanja LATIHAN EAS
-Route::get('/belanja', [BelanjaController::class, 'indexbelanja'])->name('belanja.index');
-Route::get('/belanja/create', [BelanjaController::class, 'createbelanja'])->name('belanja.create');
-Route::post('/belanja/store', [BelanjaController::class, 'storebelanja'])->name('belanja.store');
-Route::delete('/belanja/{id}', [BelanjaController::class, 'destroybelanja'])->name('belanja.destroy');
+Route::get('/belanja', [BelanjaController::class, 'index'])->name('belanja.index');
+Route::get('/belanja/create', [BelanjaController::class, 'create'])->name('belanja.create');
+Route::post('/belanja/store', [BelanjaController::class, 'store'])->name('belanja.store');
+Route::delete('/belanja/{id}', [BelanjaController::class, 'destroy'])->name('belanja.destroy');
+Route::get('/belanja/{id}/edit', [BelanjaController::class, 'edit'])->name('belanja.edit');
+Route::put('/belanja/{id}', [BelanjaController::class, 'update'])->name('belanja.update');
 
 //nilai LATIHAN EAS
-Route::get('/nilai', [NilaiController::class, 'indexnilai'])->name('nilai.index');
+Route::get('/nilai', [NilaiController::class, 'index'])->name('nilai.index');
 Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
 Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.store');
 Route::delete('/nilai/{nrp}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
