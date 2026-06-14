@@ -5,8 +5,8 @@
     <title>5026241147 Akhtar Ibrahim</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -15,41 +15,35 @@
         <h1>5026241147 Akhtar Ibrahim</h1>
         <p>@yield('judul_halaman')</p>
     </div>
-    <!-- Grey with black text -->
+
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/pegawai">Pegawai</a>
+                    <a class="nav-link {{ Request::is('pegawai*') ? 'active' : '' }}" href="/pegawai">Pegawai</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/agen">Agen</a>
+                    <a class="nav-link {{ Request::is('agen*') ? 'active' : '' }}" href="/agen">Agen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/siswa">Siswa</a> 
+                    <a class="nav-link {{ Request::is('siswa*') ? 'active' : '' }}" href="/siswa">Siswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/belanja">Latihan 1</a>
+                    <a class="nav-link {{ Request::is('belanja*') ? 'active' : '' }}" href="/belanja">Latihan 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/nilai">Latihan 2</a>
+                    <a class="nav-link {{ Request::is('nilai*') ? 'active' : '' }}" href="/nilai">Latihan 2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/eas">EAS</a>
+                    <a class="nav-link {{ Request::is('eas*') ? 'active' : '' }}" href="/eas">EAS</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container">
+
+    <div class="container mt-4">
         @yield('konten')
     </div>
 
 </body>
-
 </html>
-
-
-
-
-
-

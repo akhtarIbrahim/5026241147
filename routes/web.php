@@ -63,16 +63,25 @@ Route::get('/pegawai/tambah', [PegawaiDBController::class, 'tambah']);
 Route::post('/pegawai/store', [PegawaiDBController::class, 'store']);
 Route::get('/pegawai/edit/{id}', [PegawaiDBController::class, 'edit']);
 Route::post('/pegawai/update', [PegawaiDBController::class, 'update']);
-Route::post('/pegawai/hapus/{id}', [PegawaiDBController::class, 'hapus']);
+Route::get('/pegawai/hapus/{id}', [PegawaiDBController::class, 'hapus']);
 Route::get('/pegawai/cari', [PegawaiDBController::class, 'cari']);
 
 //agen
-Route::get('/agen', [AgenController::class, 'indexagen']);
-Route::get('/agen/tambah', [AgenController::class, 'tambahagen']);
-Route::post('/agen/store', [AgenController::class, 'storeagen']);
-Route::get('/agen/edit/{id}', [AgenController::class, 'editagen']);
-Route::post('/agen/update', [AgenController::class, 'updateagen']);
-Route::get('/agen/hapus/{id}', [AgenController::class, 'hapusagen']);
+Route::get('/agen', [AgenController::class, 'index']);
+Route::get('/agen/tambah', [AgenController::class, 'tambah']);
+Route::post('/agen/store', [AgenController::class, 'store']);
+Route::get('/agen/edit/{id}', [AgenController::class, 'edit']);
+Route::post('/agen/update', [AgenController::class, 'update']);
+Route::get('/agen/hapus/{id}', [AgenController::class, 'hapus']);
+
+//SIAP EAS
+Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
 
 //belanja LATIHAN EAS
 Route::get('/belanja', [BelanjaController::class, 'indexbelanja'])->name('belanja.index');
@@ -85,14 +94,6 @@ Route::get('/nilai', [NilaiController::class, 'indexnilai'])->name('nilai.index'
 Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
 Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.store');
 Route::delete('/nilai/{nrp}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
-
-//SIAP EAS
-Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
-Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
-Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
-Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
-Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
-Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
 //LatihanPribadi
 
