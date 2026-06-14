@@ -26,16 +26,16 @@
                     <a class="nav-link" href="/agen">Agen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/siswa">Siswa</a>
+                    <a class="nav-link" href="/siswa">Siswa</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Latihan 1</a>
+                    <a class="nav-link" href="/belanja">Latihan 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Latihan 2</a>
+                    <a class="nav-link" href="/nilai">Latihan 2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">EAS</a>
+                    <a class="nav-link" href="/eas">EAS</a>
                 </li>
             </ul>
         </div>
@@ -47,3 +47,9 @@
 </body>
 
 </html>
+
+
+
+
+
+

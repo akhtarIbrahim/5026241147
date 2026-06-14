@@ -5,7 +5,9 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\AgenController;
 use App\Http\Controllers\SiswaController;
-
+use App\Http\Controllers\BelanjaController;
+use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\BukuController;
 
 
 Route::get('/halo', function () {
@@ -72,11 +74,29 @@ Route::get('/agen/edit/{id}', [AgenController::class, 'editagen']);
 Route::post('/agen/update', [AgenController::class, 'updateagen']);
 Route::get('/agen/hapus/{id}', [AgenController::class, 'hapusagen']);
 
+//belanja LATIHAN EAS
+Route::get('/belanja', [BelanjaController::class, 'indexbelanja'])->name('belanja.index');
+Route::get('/belanja/create', [BelanjaController::class, 'createbelanja'])->name('belanja.create');
+Route::post('/belanja/store', [BelanjaController::class, 'storebelanja'])->name('belanja.store');
+Route::delete('/belanja/{id}', [BelanjaController::class, 'destroybelanja'])->name('belanja.destroy');
 
-//siswa
+//nilai LATIHAN EAS
+Route::get('/nilai', [NilaiController::class, 'indexnilai'])->name('nilai.index');
+Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
+Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.store');
+Route::delete('/nilai/{nrp}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
+
+//SIAP EAS
 Route::get('/siswa', [SiswaController::class, 'indexsiswa'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
 Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
+//LatihanPribadi
+
+// Jalur untuk melihat tabel halaman utama
+Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+// Jalur untuk memproses ketika tombol klik pinjam
+Route::post('/buku/pinjam/{id}', [BukuController::class, 'pinjam'])->name('buku.pinjam');
