@@ -7,6 +7,8 @@ use App\Http\Controllers\AgenController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\BukuController;
+
 
 Route::get('/halo', function () {
 	return "<h1>Halo, Selamat datang</h1> di tutorial laravel <b>www.malasngoding.com</b>";
@@ -92,4 +94,9 @@ Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'editsiswa'])->name('si
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
-//EAS
+//LatihanPribadi
+
+// Jalur untuk melihat tabel halaman utama
+Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+// Jalur untuk memproses ketika tombol klik pinjam
+Route::post('/buku/pinjam/{id}', [BukuController::class, 'pinjam'])->name('buku.pinjam');
