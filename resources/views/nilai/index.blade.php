@@ -2,7 +2,7 @@
 @section('title', 'Data Nilai')
 @section('konten')
 
-    <h2>Data Nilai</h2>
+    <h2>Data Nilai Mahasiswa</h2>
 
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -10,11 +10,10 @@
 
     <a href="{{ route('nilai.create') }}" class="btn btn-primary mb-3">Tambah Nilai</a>
 
-    <table class="table table-striped table-hover">
-        <thead class="table-light">
+    <table class="table table-bordered table-striped">
+        <thead>
             <tr>
                 <th>NRP</th>
-                <th>Nama</th>
                 <th>Nilai Angka</th>
                 <th>SKS</th>
                 <th>Nilai Huruf</th>
@@ -26,7 +25,6 @@
             @forelse($nilai as $row)
                 <tr>
                     <td>{{ $row->NRP }}</td>
-                    <td>{{ $row->Nama }}</td>
                     <td>{{ $row->NilaiAngka }}</td>
                     <td>{{ $row->SKS }}</td>
                     <td>
@@ -38,8 +36,7 @@
                     </td>
                     <td>{{ $row->NilaiAngka * $row->SKS }}</td>
                     <td>
-                        <form action="{{ route('nilai.destroy', $row->NRP) }}" method="POST" style="display:inline;"
-                            onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                        <form action="{{ route('nilai.destroy', $row->NRP) }}" method="POST" onsubmit="return confirm('Yakin hapus?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
