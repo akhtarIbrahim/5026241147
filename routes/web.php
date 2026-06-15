@@ -8,6 +8,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\EasController;
 
 
 Route::get('/halo', function () {
@@ -99,3 +100,9 @@ Route::delete('/nilai/{nrp}', [NilaiController::class, 'destroy'])->name('nilai.
 //LatihanPribadi
 Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
 Route::post('/buku/pinjam/{id}', [BukuController::class, 'pinjam'])->name('buku.pinjam');
+
+//EAS
+Route::get('/eas', [EasController::class, 'index'])->name('eas.index');
+Route::get('/eas/create', [EasController::class, 'create'])->name('eas.create');
+Route::post('/eas/store', [EasController::class, 'store'])->name('eas.store');
+
